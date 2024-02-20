@@ -2,7 +2,8 @@
 #define CARD_H
 
 typedef enum CardRank{
-	TWO,
+	ZERO,
+    TWO,
 	THREE,
 	FOUR,
 	FIVE,

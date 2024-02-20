@@ -18,7 +18,7 @@ char Card::getCardSuit(){
 
 void Card::setCardRank(){
 
-	switch(this->cardRank){
+	switch(this->cardValue){
 
 		case '2':
 			this->cardRank = TWO;
@@ -72,6 +72,8 @@ void Card::setCardRank(){
 			this->cardRank = ACE;
 			break;
 		
+        default:
+            this->cardRank = ZERO;
 	}
 }
 
