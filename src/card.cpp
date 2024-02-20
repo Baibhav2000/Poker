@@ -4,7 +4,7 @@ void Card::setCardValue(char cardValue){
 	this->cardValue = cardValue;
 }
 
-char Card::getCardValue(){
+char Card::getCardValue() const{
 	return this->cardValue;
 }
 
@@ -12,7 +12,7 @@ void Card::setCardSuit(char cardSuit){
 	this->cardSuit = cardSuit;
 }
 
-char Card::getCardSuit(){
+char Card::getCardSuit() const{
 	return this->cardSuit;
 }
 
@@ -77,6 +77,6 @@ void Card::setCardRank(){
 	}
 }
 
-CardRank Card::getCardRank(){
+CardRank Card::getCardRank() const{
 	return this->cardRank;
 }

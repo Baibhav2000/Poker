@@ -38,7 +38,7 @@ class Card{
 		 * 
 		 * @return Card Value
 		********************************************************/
-		char getCardValue();
+		char getCardValue() const;
 
 
 		/*******************************************************
@@ -54,7 +54,7 @@ class Card{
 		 * 
 		 * @return Card Suit
 		********************************************************/
-		char getCardSuit();
+		char getCardSuit() const;
 
 
 		/*******************************************************
@@ -66,7 +66,7 @@ class Card{
 		/********************************************************
 		 * @brief Fetches Card Rank
 		*********************************************************/
-		CardRank getCardRank();
+		CardRank getCardRank() const;
 };
 
 #endif

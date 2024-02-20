@@ -24,6 +24,15 @@ class Player{
 		HandRank handRank;
 		CardRank handValue;
 
+        CardRank isStraightFlush();
+        CardRank isFourOfAKind();
+        CardRank isFullHouse();
+        CardRank isFlush();
+        CardRank isStraight();
+        CardRank isThreeOfAKind();
+        CardRank isTwoPairs();
+        CardRank isPair();
+
 	public:
 		/********************************************************************
 		 * @brief Constructor to instantiate Hand instance 
@@ -85,6 +94,9 @@ class Player{
 		 * the highest rank
 		*********************************************************************/
 		CardRank getHandValue();
+
+
+        void findHand();
 
 
 };
