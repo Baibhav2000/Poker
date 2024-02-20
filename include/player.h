@@ -24,6 +24,8 @@ class Player{
 		HandRank handRank;
 		CardRank handValue;
 
+
+	public:
         CardRank isStraightFlush();
         CardRank isFourOfAKind();
         CardRank isFullHouse();
@@ -32,8 +34,12 @@ class Player{
         CardRank isThreeOfAKind();
         CardRank isTwoPairs();
         CardRank isPair();
+        CardRank getLowerPairRank(CardRank higherPairRank);
+        CardRank getRemainingCardRank(CardRank higherPairRank);
+        CardRank getRemainingCardRank(CardRank higherPairRank, CardRank lowerPairRank);
 
-	public:
+        std::vector<Card> getCards();
+
 		/********************************************************************
 		 * @brief Constructor to instantiate Hand instance 
 		*********************************************************************/

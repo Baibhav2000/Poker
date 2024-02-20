@@ -20,6 +20,10 @@ void Player::addCard(Card card){
 	this->cards.push_back(card);
 }
 
+std::vector<Card> Player::getCards(){
+    return this->cards;
+}
+
 void Player::setHandRank(HandRank handRank){
 	this->handRank = handRank;
 }
@@ -34,6 +38,52 @@ void Player::setHandValue(CardRank handValue){
 
 CardRank Player::getHandValue(){
 	return this->handValue;
+}
+
+CardRank Player::getLowerPairRank(CardRank higherPairRank) {
+    // Count the frequency of each rank
+    std::map<CardRank, int> rankCount;
+    for (const Card& card : cards) {
+        rankCount[card.getCardRank()]++;
+    }
+
+    CardRank lowerPairRank = ZERO;
+
+    // Check if any rank has two cards and is not the same as the higher pair rank
+    for (const auto& pair : rankCount) {
+        if (pair.second == 2 && pair.first != higherPairRank) {
+            lowerPairRank = pair.first; // Found the lower pair
+            break;
+        }
+    }
+
+    return lowerPairRank;
+}
+
+CardRank Player::getRemainingCardRank(CardRank higherPairRank){
+    CardRank remainingCardRank = ZERO;
+    for (const Card& card : cards) {
+        CardRank cardRank = card.getCardRank();
+        if (cardRank != higherPairRank) {
+            remainingCardRank = std::max(cardRank, remainingCardRank);
+        }
+    }
+
+    return remainingCardRank;
+}
+
+CardRank Player::getRemainingCardRank(CardRank higherPairRank, CardRank lowerPairRank) {
+    // Find the rank of the remaining card
+    CardRank remainingCardRank = ZERO;
+    for (const Card& card : cards) {
+        CardRank cardRank = card.getCardRank();
+        if (cardRank != higherPairRank && cardRank != lowerPairRank) {
+            remainingCardRank = cardRank;
+            break;
+        }
+    }
+
+    return remainingCardRank;
 }
 
 CardRank Player::isStraightFlush() {
